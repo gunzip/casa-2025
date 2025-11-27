@@ -38,7 +38,7 @@
       }
 
       .icon {
-        font-size: 80px;
+        font-size: 0;
         margin-bottom: 20px;
         background: #e74c3c; /* Colore rosso vivace */
         width: 120px;
@@ -95,7 +95,11 @@
     <audio id="myAudio" src="traccia2.mp3" preload="auto"></audio>
 
     <div id="play-overlay" onclick="startAudio()">
-      <div class="icon play-icon pulse">▶</div>
+      <div class="icon play-icon pulse">
+        <svg width="50" height="60" viewBox="0 0 50 60" fill="white">
+          <polygon points="0,0 0,60 50,30" />
+        </svg>
+      </div>
       <h1 id="status-text">Tocca per ascoltare</h1>
       <p>Audio Guida</p>
     </div>
@@ -136,16 +140,18 @@
 
       function isPlayingState() {
         text.innerText = "In riproduzione...";
-        icon.innerText = "II"; // Simbolo pausa
+        icon.innerHTML = "II"; // Simbolo pausa
         icon.style.background = "#2ecc71"; // Diventa verde
+        icon.style.fontSize = "80px";
         icon.classList.add("pulse");
         icon.classList.remove("play-icon"); // Rimuove padding per pausa
       }
 
       function isPausedState() {
         text.innerText = "Tocca per riprendere";
-        icon.innerText = "▶";
+        icon.innerHTML = '<svg width="50" height="60" viewBox="0 0 50 60" fill="white"><polygon points="0,0 0,60 50,30" /></svg>';
         icon.style.background = "#e74c3c"; // Torna rosso
+        icon.style.fontSize = "0";
         icon.classList.remove("pulse");
         icon.classList.add("play-icon"); // Aggiunge padding per play
       }
