@@ -43,10 +43,18 @@
         background: #e74c3c; /* Colore rosso vivace */
         width: 120px;
         height: 120px;
-        line-height: 120px;
         border-radius: 50%;
         box-shadow: 0 0 30px rgba(231, 76, 60, 0.6);
         transition: transform 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      /* Padding specifico solo per la freccia play */
+      .icon.play-icon {
+        padding-left: 8px;
       }
 
       /* Animazione pulsazione */
@@ -87,7 +95,7 @@
     <audio id="myAudio" src="traccia2.mp3" preload="auto"></audio>
 
     <div id="play-overlay" onclick="startAudio()">
-      <div class="icon pulse">▶</div>
+      <div class="icon play-icon pulse">▶</div>
       <h1 id="status-text">Tocca per ascoltare</h1>
       <p>Audio Guida</p>
     </div>
@@ -131,6 +139,7 @@
         icon.innerText = "II"; // Simbolo pausa
         icon.style.background = "#2ecc71"; // Diventa verde
         icon.classList.add("pulse");
+        icon.classList.remove("play-icon"); // Rimuove padding per pausa
       }
 
       function isPausedState() {
@@ -138,6 +147,7 @@
         icon.innerText = "▶";
         icon.style.background = "#e74c3c"; // Torna rosso
         icon.classList.remove("pulse");
+        icon.classList.add("play-icon"); // Aggiunge padding per play
       }
 
       // Se l'audio finisce, resetta lo stato
