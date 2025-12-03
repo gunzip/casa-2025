@@ -40,11 +40,11 @@
       .icon {
         font-size: 0;
         margin-bottom: 20px;
-        background: #e74c3c; /* Colore rosso vivace */
+        background: #2ecc71; /* Colore verde */
         width: 120px;
         height: 120px;
         border-radius: 50%;
-        box-shadow: 0 0 30px rgba(231, 76, 60, 0.6);
+        box-shadow: 0 0 30px rgba(46, 204, 113, 0.6);
         transition: transform 0.2s;
         display: flex;
         align-items: center;
@@ -64,13 +64,13 @@
 
       @keyframes pulse-animation {
         0% {
-          box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7);
+          box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7);
         }
         70% {
-          box-shadow: 0 0 0 30px rgba(231, 76, 60, 0);
+          box-shadow: 0 0 0 30px rgba(46, 204, 113, 0);
         }
         100% {
-          box-shadow: 0 0 0 0 rgba(231, 76, 60, 0);
+          box-shadow: 0 0 0 0 rgba(46, 204, 113, 0);
         }
       }
 
@@ -141,7 +141,7 @@
       function isPlayingState() {
         text.innerText = "In riproduzione...";
         icon.innerHTML = "II"; // Simbolo pausa
-        icon.style.background = "#2ecc71"; // Diventa verde
+        icon.style.background = "#d4a500"; // Diventa giallo scuro
         icon.style.fontSize = "80px";
         icon.classList.add("pulse");
         icon.classList.remove("play-icon"); // Rimuove padding per pausa
@@ -151,7 +151,7 @@
         text.innerText = "Tocca per riprendere";
         icon.innerHTML =
           '<svg width="50" height="60" viewBox="0 0 50 60" fill="white"><polygon points="0,0 0,60 50,30" /></svg>';
-        icon.style.background = "#e74c3c"; // Torna rosso
+        icon.style.background = "#2ecc71"; // Torna verde
         icon.style.fontSize = "0";
         icon.classList.remove("pulse");
         icon.classList.add("play-icon"); // Aggiunge padding per play
